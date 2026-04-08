@@ -1,0 +1,169 @@
+:root {
+  --primary:  #075E54;
+  --primary-light: #128C7E;
+  --accent:   #25D366;
+  --bubble-self:  #DCF8C6;
+  --bubble-other: #ffffff;
+  --sidebar-w: 300px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: 'Segoe UI', sans-serif; }
+
+/* ── Navbar ── */
+.navbar-brand { font-weight: 700; font-size: 1.4rem; }
+.bg-primary-app { background-color: var(--primary) !important; }
+
+/* ── Landing ── */
+.hero { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); }
+.feature-icon { font-size: 2.5rem; }
+
+/* ── Auth pages ── */
+.auth-card { max-width: 400px; margin: 80px auto; border-radius: 16px; }
+
+/* ── Chat layout ── */
+.chat-layout {
+  display: flex;
+  height: calc(100vh - 56px);
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  border-right: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+.sidebar-header {
+  background: var(--primary);
+  color: #fff;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.sidebar-header .btn-new {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+#conversation-list { flex: 1; overflow-y: auto; }
+
+.conv-item {
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.15s;
+}
+.conv-item:hover  { background: #f5f5f5; }
+.conv-item.active { background: #e8f5e9; border-left: 4px solid var(--accent); }
+
+.avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.conv-name { font-weight: 500; font-size: 0.95rem; }
+
+/* Main panel */
+.chat-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+.chat-header {
+  background: var(--primary-light);
+  color: #fff;
+  padding: 10px 16px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+#messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.msg-wrapper { max-width: 65%; }
+.sender-name { font-size: 0.72rem; color: var(--primary); font-weight: 600; margin-bottom: 2px; padding-left: 4px; }
+.bubble {
+  padding: 8px 12px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  word-break: break-word;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  position: relative;
+}
+.bubble-self  { background: var(--bubble-self);  border-bottom-right-radius: 4px; }
+.bubble-other { background: var(--bubble-other); border-bottom-left-radius: 4px; }
+.msg-time { font-size: 0.68rem; color: #888; margin-left: 8px; }
+
+/* Input */
+.message-bar {
+  background: #fff;
+  padding: 10px 12px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-shrink: 0;
+}
+#message-input {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 24px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  outline: none;
+  resize: none;
+  max-height: 96px;
+  overflow-y: auto;
+}
+#message-input:focus { border-color: var(--primary-light); }
+.send-btn {
+  background: var(--accent);
+  border: none;
+  border-radius: 50%;
+  width: 42px; height: 42px;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.15s;
+}
+.send-btn:hover { opacity: 0.85; }
+
+#empty-state {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #aaa;
+}
+
+/* ── Profile ── */
+.profile-card { max-width: 480px; margin: 60px auto; border-radius: 16px; }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .sidebar { width: 100%; }
+  .chat-main { display: none; }
+  .chat-main.mobile-open { display: flex; position: fixed; inset: 0; z-index: 10; }
+}

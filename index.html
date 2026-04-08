@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#075E54" />
+  <meta name="description" content="Texta — real-time messaging for everyone" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>Texta</title>
+</head>
+<body>
+
+  <nav class="navbar navbar-dark bg-primary-app px-3">
+    <span class="navbar-brand">Texta</span>
+    <div class="d-flex gap-2">
+      <a href="login.html"    class="btn btn-sm btn-outline-light">Log in</a>
+      <a href="register.html" class="btn btn-sm" style="background:var(--accent);color:#fff;">Sign up</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero text-white text-center py-5 px-3">
+    <h1 class="display-5 fw-bold mb-3">Simple. Fast. Real-time.</h1>
+    <p class="lead mb-4">Texta lets you chat with anyone — instantly, from any browser. No phone number needed.</p>
+    <a href="register.html" class="btn btn-lg text-white fw-semibold px-5" style="background:var(--accent);">
+      Get started free
+    </a>
+  </section>
+
+  <!-- Features -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row g-4 text-center">
+        <div class="col-md-4">
+          <div class="feature-icon mb-2">💬</div>
+          <h5 class="fw-semibold">Real-time messaging</h5>
+          <p class="text-muted small">Messages delivered instantly via WebSockets.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-icon mb-2">🔒</div>
+          <h5 class="fw-semibold">Secure accounts</h5>
+          <p class="text-muted small">Sign up with just a username and password.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-icon mb-2">📱</div>
+          <h5 class="fw-semibold">PWA installable</h5>
+          <p class="text-muted small">Add Texta to your home screen like a native app.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center py-3 text-muted small">
+    &copy; <span id="yr"></span> Texta
+  </footer>
+
+  <script>document.getElementById('yr').textContent = new Date().getFullYear()</script>
+  <script>
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js')
+  </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "Texta",
+  "short_name": "Texta",
+  "description": "A real-time messenger app",
+  "theme_color": "#075E54",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
