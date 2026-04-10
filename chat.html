@@ -13,8 +13,8 @@
 <body>
 
   <nav class="navbar navbar-dark bg-primary-app px-3">
-    <a href="chat.html" class="navbar-brand">Texta</a>
-    <div class="d-flex gap-3">
+    <a href="chat.html" class="navbar-brand fw-bold">Texta</a>
+    <div class="d-flex gap-3" align-items-center>
       <a href="profile.html" class="text-white text-decoration-none small">Profile</a>
       <button id="signout-btn" class="btn btn-sm btn-outline-light">Sign out</button>
     </div>
@@ -23,16 +23,20 @@
   <div class="chat-layout">
 
     <!-- Sidebar -->
-    <div class="sidebar">
+    <aside class="sidebar">
       <div class="sidebar-header">
         <span class="fw-semibold">Messages</span>
+        <small class="text-muted">Your Conversations</small>
         <button class="btn-new" data-bs-toggle="modal" data-bs-target="#newChatModal" title="New message">+</button>
       </div>
       <div id="conversation-list"></div>
-    </div>
-
+    </aside>
+  
+  
+<!--Main chat area-->
+<main class="chat-main"></main>
     <!-- Empty state -->
-    <div id="empty-state" class="chat-main">
+    <div id="empty-state" class="empty-state d-none">
       <div class="text-center">
         <div style="font-size:3rem">💬</div>
         <p class="mt-2">Select a conversation to start chatting</p>
@@ -40,10 +44,42 @@
     </div>
 
     <!-- Chat panel (hidden until a conversation is selected) -->
-    <div id="chat-panel" class="chat-main d-none">
-      <div class="chat-header" id="chat-title">Chat</div>
+    <div id="chat-panel" class="chat-main">
+      <div class="chat-header" id="chat-title"></div>
+      <div class="chat-user-info"></div>
+      <div class="chat-user-avatar">B</div>
+      <div>
+        <div class="chat-title" id="chat-title">Chat</div>
+        <div class="chat-status">Online</div>
+      </div>
+      <div class="chat-header-sections">
+        <button type="button" class="chat-action-btn" title="Search">🔎</button>
+        <button type="button" class="chat-action-btn" title="More options">&#8942</button>
+      </div>
+      </div>
+
+      <div id="messages" class="messages"></div>
+      
+      <!-- Sample message
+      <div class="message-row resceived">
+        <div class="message-bubble"></div>
+        <div class="message-meta"></div>
+        <div class="message-reactions"></div>
+        <span class="reaction-pill">😋</span>
+        <span class="reaction-pill">🦕</span>
+      </div>
+      <div class="message-row sent">
+        <div class="message-reactions">
+          <span class="reaction-pill">💗</span>
+        </div>
+      </div>
+      
+      <div id="typing-indicator" class="message-row received"></div>
+      -->
+  </div>
       <div id="messages"></div>
       <form class="message-bar" id="message-form">
+        <button type="button" class="input-icon-btn" title="Emoji">🤨</button>
         <textarea id="message-input" placeholder="Type a message…" rows="1"></textarea>
         <button type="submit" class="send-btn">&#10148;</button>
       </form>
